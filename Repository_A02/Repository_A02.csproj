@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessObjects_A02\BusinessObjects_A02.csproj" />
+    <ProjectReference Include="..\DataAccessLayer_A02\DataAccessLayer_A02.csproj" />
+  </ItemGroup>
+
+</Project>

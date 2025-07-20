@@ -1,0 +1,60 @@
+﻿<Window x:Class="WpfApp_A02.LoginWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_A02"
+        mc:Ignorable="d"
+        Title="LoginWindow" Height="450" Width="800">
+    <Grid>
+        <!-- Nền gradient -->
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#49C7F5" Offset="0" />
+                <!-- Sky Blue -->
+                <GradientStop Color="#389EDB" Offset="0.35" />
+                <!-- Medium Blue -->
+                <GradientStop Color="#3F5FDD" Offset="0.65" />
+                <!-- New Blue-Violet -->
+                <GradientStop Color="#2F7EBD" Offset="1" />
+                <!-- Deep Blue -->
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Form Login -->
+        <Border Width="350" Height="320"
+                Background="White"
+                CornerRadius="12"
+                HorizontalAlignment="Center"
+                VerticalAlignment="Center"
+                Padding="20"
+                >
+            <StackPanel VerticalAlignment="Center">
+                <TextBlock Text="Đăng nhập hệ thống"
+                           FontSize="22"
+                           FontWeight="Bold"
+                           Foreground="#2F7EBD"
+                           HorizontalAlignment="Center"
+                           Margin="0,0,0,20"/>
+
+                <TextBlock Text="Username" />
+                <TextBox x:Name="txtUsername"
+                         Height="30"
+                         Margin="0,5,0,15"/>
+
+                <TextBlock Text="Password" />
+                <PasswordBox x:Name="txtPassword"
+                             Height="30"
+                             Margin="0,5,0,20"/>
+
+                <Button x:Name="btnLogin" Content="Login"
+                        Background="#389EDB"
+                        Foreground="White"
+                        FontWeight="Bold"
+                        Height="35"
+                        Click="btnLogin_Click"/>
+            </StackPanel>
+        </Border>
+    </Grid>
+
+</Window>

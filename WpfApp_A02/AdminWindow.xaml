@@ -1,0 +1,85 @@
+﻿<Window x:Class="WpfApp_A02.AdminWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp_A02"
+        mc:Ignorable="d"
+        Title="AdminWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#867DDE" Offset="0" />
+                <GradientStop Color="#7D84DA" Offset="0.2" />
+                <GradientStop Color="#768AD5" Offset="0.4" />
+                <GradientStop Color="#6F91CF" Offset="0.6" />
+                <GradientStop Color="#6998C8" Offset="0.8" />
+                <GradientStop Color="#649EC1" Offset="1" />
+            </LinearGradientBrush>
+        </Grid.Background>
+
+        <!-- Logout Button -->
+        <Button x:Name="btnOut" Content="Logout"
+                Width="70" Height="35"
+                FontWeight="Bold"
+                Foreground="White"
+                HorizontalAlignment="Right"
+                VerticalAlignment="Top"
+                Margin="0,10,10,0"
+                Cursor="Hand"
+                BorderBrush="Transparent">
+            <Button.Background>
+                <SolidColorBrush Color="Red"/>
+            </Button.Background>
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="Button">
+                                <Border Background="{TemplateBinding Background}"
+                                        CornerRadius="10" Padding="10">
+                                    <ContentPresenter HorizontalAlignment="Center"
+                                                      VerticalAlignment="Center"/>
+                                </Border>
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="#FF4C4C"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter Property="Background" Value="#B22222"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+        </Button>
+
+        <!-- Tab Navigation -->
+        <TabControl x:Name="tabControl"
+                    Margin="20,60,20,20"
+                    FontSize="16"
+                    Background="White"
+                    BorderThickness="0"
+                    Padding="10"
+                    SelectedIndex="0">
+            <TabItem Header="👥 Customer Management">
+                <Frame Source="Control/CustomerManagement.xaml"/>
+            </TabItem>
+            <TabItem Header="📦 Product + Category">
+                <Frame Source=""/>
+            </TabItem>
+            <TabItem Header="📋 Order + Order Detail">
+                <Frame Source=""/>
+            </TabItem>
+            <TabItem Header="👨‍💼 Employee Profile">
+                <Frame Source=""/>
+            </TabItem>
+            <TabItem Header="📊 Sales Report">
+                <Frame Source=""/>
+            </TabItem>
+        </TabControl>
+    </Grid>
+
+</Window>

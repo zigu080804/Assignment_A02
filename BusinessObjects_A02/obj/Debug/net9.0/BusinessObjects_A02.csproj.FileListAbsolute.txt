@@ -1,0 +1,12 @@
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\bin\Debug\net9.0\BusinessObjects_A02.deps.json
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\bin\Debug\net9.0\BusinessObjects_A02.dll
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\bin\Debug\net9.0\BusinessObjects_A02.pdb
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\BusinessObjects_A02.GeneratedMSBuildEditorConfig.editorconfig
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\BusinessObjects_A02.AssemblyInfoInputs.cache
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\BusinessObjects_A02.AssemblyInfo.cs
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\BusinessObjects_A02.csproj.CoreCompileInputs.cache
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\BusinessObjects_A02.sourcelink.json
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\BusinessObjects_A02.dll
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\refint\BusinessObjects_A02.dll
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\BusinessObjects_A02.pdb
+D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\BusinessObjects_A02\obj\Debug\net9.0\ref\BusinessObjects_A02.dll
