@@ -11,9 +11,20 @@ namespace Repository_A02
     public class EmployeeRepositoy : IEmployeeRepositoy
     {   
         EmployeeDAO employeedao = new EmployeeDAO();
+
+        public Employee? GetEmployeeById(int id)
+        {
+            return employeedao.GetEmployeeById(id);
+        }
+
         public Employee Login(string username, string pwd)
         {
             return employeedao.Login(username, pwd);
+        }
+
+        public void UpdateEmployeeProfile(Employee employee)
+        {
+            employeedao.UpdateEmployeeProfile(employee);
         }
     }
 }

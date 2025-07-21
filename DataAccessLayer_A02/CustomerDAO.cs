@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using BusinessObjects_A02;
+using Microsoft.EntityFrameworkCore;
 namespace DataAccessLayer_A02
 {
     public class CustomerDAO
@@ -67,13 +68,24 @@ namespace DataAccessLayer_A02
         // ❌ Delete
         public void DeleteCustomer(int customerId)
         {
-            var customer = context.Customers.FirstOrDefault(c => c.CustomerId == customerId);
-            if (customer != null)
+            var customer = context.Customers
+                .Include(c => c.Orders)
+                .FirstOrDefault(c => c.CustomerId == customerId);
+
+            if (customer == null)
             {
-                context.Customers.Remove(customer);
-                context.SaveChanges();
+                throw new InvalidOperationException("Không tìm thấy khách hàng.");
             }
+
+            if (customer.Orders != null && customer.Orders.Any())
+            {
+                throw new InvalidOperationException("Không thể xóa khách hàng vì có đơn hàng liên quan.");
+            }
+
+            context.Customers.Remove(customer);
+            context.SaveChanges();
         }
+
         public List<Customer> SearchCustomers(string keyword)
         {
             return context.Customers

@@ -15,6 +15,28 @@ namespace DataAccessLayer_A02
                           .FirstOrDefault(ac => ac.UserName == username
                                                 && ac.Password == pwd);
         }
+        public Employee GetEmployeeById(int id)
+        {
+            return context.Employees.FirstOrDefault(e => e.EmployeeId == id);
+        }
+
+        public void UpdateEmployeeProfile(Employee employee)
+        {
+            var existing = context.Employees.FirstOrDefault(e => e.EmployeeId == employee.EmployeeId);
+            if (existing != null)
+            {
+                existing.Name = employee.Name;
+                existing.UserName = employee.UserName;
+                existing.Password = employee.Password;
+                existing.JobTitle = employee.JobTitle;
+                existing.BirthDate = employee.BirthDate;
+                existing.HireDate = employee.HireDate;
+                existing.Address = employee.Address;
+
+                context.SaveChanges();
+            }
+        }
+
 
     }
 }

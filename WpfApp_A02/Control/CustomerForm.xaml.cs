@@ -23,15 +23,15 @@ namespace WpfApp_A02.Control
         public Customer Customer { get; private set; }
         private bool isEdit;
 
+
+
         public CustomerForm(Customer customer = null)
         {
             InitializeComponent();
-
             if (customer != null)
             {
                 isEdit = true;
                 Customer = customer;
-
                 txtCompanyName.Text = customer.CompanyName;
                 txtContactName.Text = customer.ContactName;
                 txtContactTitle.Text = customer.ContactTitle;
@@ -46,16 +46,23 @@ namespace WpfApp_A02.Control
 
         private void Save_Click(object sender, RoutedEventArgs e)
         {
-            Customer.CompanyName = txtCompanyName.Text;
-            Customer.ContactName = txtContactName.Text;
-            Customer.ContactTitle = txtContactTitle.Text;
-            Customer.Address = txtAddress.Text;
-            Customer.Phone = txtPhone.Text;
+            if (string.IsNullOrWhiteSpace(txtCompanyName.Text))
+            {
+                MessageBox.Show("Company Name không được để trống!", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
+                txtCompanyName.Focus();
+                return;
+            }
+
+            // Gán lại các giá trị từ form
+            Customer.CompanyName = txtCompanyName.Text.Trim();
+            Customer.ContactName = txtContactName.Text?.Trim();
+            Customer.ContactTitle = txtContactTitle.Text?.Trim();
+            Customer.Address = txtAddress.Text?.Trim();
+            Customer.Phone = txtPhone.Text?.Trim();
 
             this.DialogResult = true;
             this.Close();
         }
-
         private void Cancel_Click(object sender, RoutedEventArgs e)
         {
             this.DialogResult = false;

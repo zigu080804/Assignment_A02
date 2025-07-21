@@ -21,6 +21,26 @@ namespace DataAccessLayer_A02
                     .ThenInclude(od => od.Product) // nếu muốn thêm thông tin sản phẩm
                 .ToList();
         }
+        public List<Order> GetAllOrders()
+        {
+            return context.Orders
+                .Include(o => o.OrderDetails)
+                    .ThenInclude(od => od.Product)
+                .ToList();
+        }
+        public List<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
+        {
+            
+                return context.Orders
+                    .Where(o => o.OrderDate >= startDate && o.OrderDate <= endDate)
+                    .Include(o => o.Customer)
+                    .Include(o => o.Employee)
+                    .Include(o => o.OrderDetails)
+                    .OrderByDescending(o => o.OrderDate)
+                    .ToList();
+            
+        }
+
 
     }
 }

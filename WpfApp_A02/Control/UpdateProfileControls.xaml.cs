@@ -29,6 +29,7 @@ namespace WpfApp_A02.Control
         private Customer currentCustomer;
         private CustomerService customerService = new CustomerService();
 
+
         public UpdateProfileControls(Customer customer)
         {
             InitializeComponent();

@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:WpfApp_A02"
         mc:Ignorable="d"
-        Title="AdminWindow" Height="450" Width="800">
+        Title="AdminWindow" Height="450" Width="800"
+        Loaded="Window_Loaded">
+    
     <Grid>
+       
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
                 <GradientStop Color="#867DDE" Offset="0" />
@@ -27,7 +30,7 @@
                 VerticalAlignment="Top"
                 Margin="0,10,10,0"
                 Cursor="Hand"
-                BorderBrush="Transparent">
+                BorderBrush="Transparent" Click="btnOut_Click_1">
             <Button.Background>
                 <SolidColorBrush Color="Red"/>
             </Button.Background>
@@ -68,16 +71,17 @@
                 <Frame Source="Control/CustomerManagement.xaml"/>
             </TabItem>
             <TabItem Header="📦 Product + Category">
-                <Frame Source=""/>
+                <Frame Source="Control/CategoryProductManagement.xaml"/>
             </TabItem>
             <TabItem Header="📋 Order + Order Detail">
-                <Frame Source=""/>
+                <Frame Source="Control/ViewOrderDetail.xaml"/>
             </TabItem>
-            <TabItem Header="👨‍💼 Employee Profile">
-                <Frame Source=""/>
+            <TabItem Header="👨‍💼 Employee Profile" x:Name="tabEmployeeProfile">
+                <Frame x:Name="employeeProfileFrame"/>
             </TabItem>
+
             <TabItem Header="📊 Sales Report">
-                <Frame Source=""/>
+                <Frame Source="Control/ReportControl.xaml"/>
             </TabItem>
         </TabControl>
     </Grid>

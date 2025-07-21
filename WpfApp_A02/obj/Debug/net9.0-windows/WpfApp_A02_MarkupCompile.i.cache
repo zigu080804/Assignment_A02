@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET9_0;NETCOREAPP;WINDOWS;WINDOWS7_0;NET5_0_OR_GREATER;NET6_0_OR_GREATER;NET7_0_OR_GREATER;NET8_0_OR_GREATER;NET9_0_OR_GREATER;NETCOREAPP3_0_OR_GREATER;NETCOREAPP3_1_OR_GREATER;WINDOWS7_0_OR_GREATER
 D:\FPTSUMMER2025\PRN212\FileAssignment_02\HuynhTuanKiet_SE180309_A02.sln\WpfApp_A02\App.xaml
-81536151907
+14-1322086037
 
-13-1028708155
+211680506853
 239-2128824683
-AdminWindow.xaml;Control\CustomerForm.xaml;Control\CustomerManagement.xaml;Control\OrderHistoryControl.xaml;Control\UpdateProfileControls.xaml;CustomerWindow.xaml;LoginWindow.xaml;MainWindow.xaml;
+AdminWindow.xaml;Control\CategoryProductManagement.xaml;Control\CustomerForm.xaml;Control\CustomerManagement.xaml;Control\OrderHistoryControl.xaml;Control\ReportControl.xaml;Control\UpdatePersonalProfile.xaml;Control\UpdateProfileControls.xaml;Control\ViewOrderDetail.xaml;CustomerWindow.xaml;LoginWindow.xaml;MainWindow.xaml;Views\CategoryForm.xaml;Views\ProductForm.xaml;
 
-True
+False
 

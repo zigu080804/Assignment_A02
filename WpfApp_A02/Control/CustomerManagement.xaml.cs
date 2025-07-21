@@ -24,7 +24,7 @@ namespace WpfApp_A02.Control
     {
         private CustomerService _customerService;
         private List<Customer> _customers;
-        private Customer _selectedCustomer;
+        //private Customer _selectedCustomer;
 
         public CustomerManagement()
         {
@@ -64,60 +64,47 @@ namespace WpfApp_A02.Control
 
         private void BtnUpdate_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedCustomer == null)
+            var selectedCustomer = CustomerDataGrid.SelectedItem as Customer;
+            if (selectedCustomer == null)
             {
                 MessageBox.Show("Please select a customer to update.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
 
-            var form = new CustomerForm(new Customer
+            var dialog = new CustomerForm(selectedCustomer); // mở dialog sửa
+            if (dialog.ShowDialog() == true)
             {
-                CustomerId = _selectedCustomer.CustomerId,
-                CompanyName = _selectedCustomer.CompanyName,
-                ContactName = _selectedCustomer.ContactName,
-                ContactTitle = _selectedCustomer.ContactTitle,
-                Address = _selectedCustomer.Address,
-                Phone = _selectedCustomer.Phone
-            });
-
-            if (form.ShowDialog() == true)
-            {
-                try
-                {
-                    _customerService.UpdateCustomer(form.Customer);
-                    MessageBox.Show("Customer updated successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LoadCustomers();
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error updating customer: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                var updatedCustomer = dialog.Customer;
+                _customerService.UpdateCustomer(updatedCustomer);
+                LoadCustomers();
             }
         }
 
 
+        // Do thiếu 1 trường để soft Delete cho Customer nên em không dám xóa thẳng 1 row data có reference key 
+        // Nên em handle lỗi 
         private void BtnDelete_Click(object sender, RoutedEventArgs e)
         {
-            if (_selectedCustomer == null)
+            var selectedCustomer = CustomerDataGrid.SelectedItem as Customer;
+            if (selectedCustomer == null)
             {
-                MessageBox.Show("Please select a customer to delete.", "Warning", MessageBoxButton.OK, MessageBoxImage.Warning);
+                MessageBox.Show("Vui lòng chọn khách hàng cần xóa.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Warning);
                 return;
             }
-
-            var result = MessageBox.Show("Are you sure you want to delete this customer?", "Confirm Delete", MessageBoxButton.YesNo, MessageBoxImage.Question);
-            if (result == MessageBoxResult.Yes)
+            try
             {
-                try
-                {
-                    _customerService.DeleteCustomer(_selectedCustomer.CustomerId);
-                    MessageBox.Show("Customer deleted successfully.", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    LoadCustomers();
-                    
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Error deleting customer: {ex.Message}", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
+                _customerService.DeleteCustomer(selectedCustomer.CustomerId);
+                MessageBox.Show("Xóa khách hàng thành công.", "Thông báo", MessageBoxButton.OK, MessageBoxImage.Information);
+                LoadCustomers(); // hoặc cập nhật lại DataGrid
+                
+            }
+            catch (InvalidOperationException ex)
+            {
+                MessageBox.Show(ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Warning);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Đã xảy ra lỗi: " + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 

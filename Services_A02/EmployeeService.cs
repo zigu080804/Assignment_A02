@@ -16,9 +16,20 @@ namespace Services_A02
             {
             iemployeeRepositoy = new EmployeeRepositoy();
             }
+
+        public Employee? GetEmployeeById(int id)
+        {
+            return iemployeeRepositoy.GetEmployeeById(id);
+        }
+
         public Employee Login(string username, string pwd)
         {
             return iemployeeRepositoy.Login(username, pwd);
+        }
+
+        public void UpdateEmployeeProfile(Employee employee)
+        {
+            iemployeeRepositoy.UpdateEmployeeProfile(employee);
         }
     }
 }

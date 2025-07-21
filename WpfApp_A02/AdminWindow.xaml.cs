@@ -11,6 +11,8 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using BusinessObjects_A02;
+using WpfApp_A02.Control;
 
 namespace WpfApp_A02
 {
@@ -19,12 +21,22 @@ namespace WpfApp_A02
     /// </summary>
     public partial class AdminWindow : Window
     {
-        public AdminWindow()
+        private Employee _currentEmployee;
+
+        public AdminWindow(Employee employee)
         {
             InitializeComponent();
+            _currentEmployee = employee;
         }
 
-        private void btnOut_Click(object sender, RoutedEventArgs e)
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            employeeProfileFrame.Content = new UpdatePersonalProfile(_currentEmployee);
+        }
+
+
+        private void btnOut_Click_1(object sender, RoutedEventArgs e)
         {
             LoginWindow loginWindow = new LoginWindow();
             loginWindow.Show();

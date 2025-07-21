@@ -40,7 +40,7 @@ public partial class LucySalesDataContext : DbContext
     }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-    {
+    {   
         optionsBuilder.UseSqlServer(GetConnectionString());
     }
 

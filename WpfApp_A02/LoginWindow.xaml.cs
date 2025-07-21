@@ -46,7 +46,7 @@ namespace WpfApp_A02
                     if (employee != null)
                     {
                         MessageBox.Show("Đăng nhập với vai trò Quản trị viên (Admin).", "Thành công", MessageBoxButton.OK, MessageBoxImage.Information);
-                        var adminWindow = new AdminWindow(); // Có thể đổi tên nếu bạn tách riêng AdminWindow
+                        var adminWindow = new AdminWindow(employee); // Có thể đổi tên nếu bạn tách riêng AdminWindow
                         adminWindow.Show();
                         Close();
                         return;

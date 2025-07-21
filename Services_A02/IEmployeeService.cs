@@ -10,6 +10,7 @@ namespace Services_A02
     public interface IEmployeeService
     {
         public Employee Login(string username, string pwd);
-
+        public void UpdateEmployeeProfile(Employee employee);
+        public Employee? GetEmployeeById(int id);
     }
 }

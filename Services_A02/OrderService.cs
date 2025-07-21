@@ -16,10 +16,20 @@ namespace Services_A02
         {
             iorderrepo = new OrderRepository();
         }
+
+        public List<Order> GetAllOrders()
+        {
+            return iorderrepo.GetAllOrders();
+        }
+
         public List<Order> GetOrdersByCustomerId(int customerId)
         {
             return iorderrepo.GetOrdersByCustomerId(customerId);    
         }
 
+        public List<Order> GetOrdersByDateRange(DateTime startDate, DateTime endDate)
+        {
+            return iorderrepo.GetOrdersByDateRange(startDate, endDate);
+        }
     }
 }
